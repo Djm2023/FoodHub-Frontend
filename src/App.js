@@ -11,6 +11,7 @@ import ErrorPage from "./Components/Error";
 import ForgotPassword from "./Components/Authentication/ForgotPassword";
 import OTPPage from "./Components/Authentication/Otp";
 import Auth from "./Components/Authentication/Auth";
+import RestaurantMenu from "./Components/Restaurants/RestaurantMenu";
 
 const AppLayout = () => {
   return (
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: "/restaurants",
         element: <Body />,
+      },
+      {
+        path: "/restaurant/:id",
+        element: <RestaurantMenu />,
       },
       {
         path: "*", // ✅ catches all invalid routes

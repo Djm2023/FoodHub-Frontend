@@ -5,6 +5,7 @@ import Banner from "./Banner";
 import Categories from "./Categories";
 import { filters } from "../../Utils/CategoryFilter";
 import FilterBar from "../../UIComponents/Slider";
+import { Link } from "react-router";
 
 const Restaurants = () => {
   const [filteredItem, setFilteredItem] = useState([]);
@@ -66,7 +67,9 @@ const Restaurants = () => {
 
         <div className="grid md:grid-cols-4 gap-6 cursor-pointer">
           {listOfRestaurants?.map((res) => (
-            <RestaurantCard key={res._id} resInfo={res} />
+            <Link key={res._id} to={`/restaurant/${res._id}`}>
+              <RestaurantCard key={res._id} resInfo={res} />
+            </Link>
           ))}
         </div>
       </div>
