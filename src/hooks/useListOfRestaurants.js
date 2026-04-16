@@ -6,7 +6,7 @@ const useListOfRestaurants = () => {
   const [categories, setCategories] = useState([]);
 
   const fetchRestaurantList = async () => {
-    const data = await fetch(process.env.BACKEND_URL + "/restaurants");
+    const data = await fetch("/api/restaurants");
     const resData = await data?.json();
 
     setListOfRestaurants(resData?.data);
