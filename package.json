@@ -6,7 +6,8 @@
   "author": "Devjyoti Mukherjee",
   "scripts": {
     "test": "jest",
-    "dev": "parcel index.html"
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "dependencies": {
     "lucide-react": "^1.8.0",
