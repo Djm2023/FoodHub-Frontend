@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useListOfRestaurants from "../../hooks/useListOfRestaurants";
 import RestaurantCard from "./RestaurantCard";
 import Banner from "./Banner";
@@ -6,19 +6,36 @@ import Categories from "./Categories";
 import { filters } from "../../Utils/CategoryFilter";
 import FilterBar from "../../UIComponents/Slider";
 import { Link } from "react-router";
+import Shimmer from "../Shimmer";
 
 const Restaurants = () => {
-  const [filteredItem, setFilteredItem] = useState([]);
   const { listOfRestaurants, banners, categories } = useListOfRestaurants();
+  const [allRestaurantList, setAllRestaurantList] = useState([]);
+  const [filteredItem, setFilteredItem] = useState([]);
 
-  const handleFilter = (item) => {
-    const filteredData =
-      item === "4.5+ Rating"
-        ? listOfRestaurants.filter((item) => item.rating > 4.5)
-        : listOfRestaurants;
+  useEffect(() => {
+    if (listOfRestaurants.length > 0) {
+      setAllRestaurantList(listOfRestaurants);
+      setFilteredItem(listOfRestaurants);
+      console.log(listOfRestaurants, "listOfRestaurants");
+    }
+  }, [listOfRestaurants]);
+
+  const handleFilter = (filterName) => {
+    let filteredData = [...allRestaurantList];
+
+    if (filterName === "4.5+ Rating") {
+      filteredData = filteredData.filter((item) => item.rating >= 4.5);
+    } else if (filterName === "Vegetarian") {
+      filteredData = filteredData.filter((item) => item.isVeg);
+    } else {
+      filteredData = allRestaurantList;
+    }
 
     setFilteredItem(filteredData);
   };
+
+  if (listOfRestaurants?.length === 0) return <Shimmer />;
 
   return (
     <div className="bg-gray-100 min-h-screen px-6 py-6">
@@ -66,7 +83,7 @@ const Restaurants = () => {
         <h2 className="font-bold mb-4 text-xl">Featured Restaurants</h2>
 
         <div className="grid md:grid-cols-4 gap-6 cursor-pointer">
-          {listOfRestaurants?.map((res) => (
+          {filteredItem?.map((res) => (
             <Link key={res._id} to={`/restaurant/${res._id}`}>
               <RestaurantCard key={res._id} resInfo={res} />
             </Link>

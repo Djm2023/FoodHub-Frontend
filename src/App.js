@@ -12,6 +12,12 @@ import ForgotPassword from "./Components/Authentication/ForgotPassword";
 import OTPPage from "./Components/Authentication/Otp";
 import Auth from "./Components/Authentication/Auth";
 import RestaurantMenu from "./Components/Restaurants/RestaurantMenu";
+import Checkout from "./Components/Checkout";
+import OrderConfirmation from "./Components/OrderConfirmation";
+import Help from "./Components/Help";
+import Profile from "./Components/Profile";
+import Location from "./Components/Location";
+import Cart from "./Components/Cart";
 
 const AppLayout = () => {
   return (
@@ -58,6 +64,34 @@ const router = createBrowserRouter([
         path: "/restaurant/:id",
         element: <RestaurantMenu />,
       },
+      {
+        path: "/restaurant/checkout",
+        element: <Checkout />,
+      },
+      {
+        path: "/order/confirm",
+        element: <OrderConfirmation />,
+      },
+      {
+        path: "/help",
+        element: <Help />,
+      },
+
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+
+      {
+        path: "/location",
+        element: <Location />,
+      },
+
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+
       {
         path: "*", // ✅ catches all invalid routes
         element: <ErrorPage />,

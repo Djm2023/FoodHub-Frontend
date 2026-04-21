@@ -14,7 +14,7 @@ const useRestaurantMenu = () => {
       setLoading(true);
 
       const res = await fetch(`/api/restaurants/${id}`);
-      //   const res = await fetch(`http://localhost:5000/api/restaurants/${id}`);
+      // const res = await fetch(`http://localhost:5000/api/restaurants/${id}`);
 
       if (!res.ok) {
         throw new Error("Failed to fetch restaurant menu");
