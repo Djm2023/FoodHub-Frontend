@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useRestaurantMenu from "../../hooks/useRestaurantMenu";
 import { useNavigate } from "react-router";
+import { CloseIcon, StarIcon, PlusIcon, MinusIcon } from "../../Utils/Icons";
 
 const RestaurantMenu = () => {
   const [cart, setCart] = useState([]);
@@ -14,48 +15,6 @@ const RestaurantMenu = () => {
 
   const { name, image, cuisines, rating, deliveryTime, costForTwo, categories } =
     restaurantMenuData;
-
-  const StarIcon = () => (
-    <svg className="w-4 h-4 text-orange-500" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 .587l3.668 7.431L24 9.748l-6 5.848 1.416 8.264L12 19.771l-7.416 4.089L6 15.596 0 9.748l8.332-1.73z" />
-    </svg>
-  );
-
-  const PlusIcon = () => (
-    <svg
-      className="w-4 h-4"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-    >
-      <path d="M12 5v14M5 12h14" />
-    </svg>
-  );
-
-  const MinusIcon = () => (
-    <svg
-      className="w-4 h-4"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-    >
-      <path d="M5 12h14" />
-    </svg>
-  );
-
-  const CloseIcon = () => (
-    <svg
-      className="w-5 h-5"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth="2"
-      fill="none"
-    >
-      <path d="M6 6l12 12M6 18L18 6" />
-    </svg>
-  );
 
   const addToCart = (item) => {
     const existing = cart.find((c) => c._id === item._id);

@@ -1,26 +1,9 @@
 import React, { useState } from "react";
+import { faqs } from "../Utils/Faqs";
+import { QuickAction } from "../Utils/QuickActions";
 
 const Help = () => {
   const [activeIndex, setActiveIndex] = useState(null);
-
-  const faqs = [
-    {
-      q: "Where is my order?",
-      a: "You can track your order in real-time from the Order Tracking page.",
-    },
-    {
-      q: "Can I cancel my order?",
-      a: "Yes, you can cancel before the restaurant starts preparing your order.",
-    },
-    {
-      q: "How do I get a refund?",
-      a: "Refunds are processed within 3-5 business days after approval.",
-    },
-    {
-      q: "Payment failed but money deducted?",
-      a: "The amount will be automatically refunded within 5-7 working days.",
-    },
-  ];
 
   return (
     <div className="bg-[#f6f6f6] min-h-screen px-4 md:px-8 py-6 animate-fadeIn">
@@ -33,20 +16,7 @@ const Help = () => {
 
         {/* QUICK ACTIONS */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {[
-            {
-              title: "Track Order",
-              desc: "Check your live order status",
-            },
-            {
-              title: "Report an Issue",
-              desc: "Problem with your order",
-            },
-            {
-              title: "Payment Help",
-              desc: "Issues with payments/refunds",
-            },
-          ].map((item, i) => (
+          {QuickAction?.map((item, i) => (
             <div
               key={i}
               className="bg-white p-5 rounded-2xl border shadow-sm cursor-pointer hover:shadow-md transition animate-slideUp"

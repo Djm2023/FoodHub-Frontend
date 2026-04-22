@@ -74,7 +74,6 @@ const Hero = () => {
           {/* Top Card */}
           <div className="absolute top-0 right-10 rotate-6 bg-white shadow-lg rounded-xl overflow-hidden w-64">
             <img
-              //   src="https://images.unsplash.com/photo-1563379091339-03246963d96c"
               src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=500&q=80"
               alt="food"
               className="h-36 w-full object-cover"

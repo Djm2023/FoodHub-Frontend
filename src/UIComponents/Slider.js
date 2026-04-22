@@ -17,8 +17,6 @@ const FilterBar = ({ CategoryFilters, handleFilter }) => {
     }
   }, [active, CategoryFilters]);
 
-  console.log(active);
-
   return (
     <div className="flex justify-center mt-4 items-center gap-3">
       {/* Label (kept outside for correct alignment) */}
